@@ -6,12 +6,17 @@
 <title>Auto Space Lanka</title>
 
 <style>
-body{
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial, sans-serif;
-background:#071a2f;
+}
+
+body{
+background:#061326;
 color:white;
-text-align:center;
 }
 
 /* HEADER */
@@ -24,26 +29,28 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 box-shadow:0 2px 15px rgba(0,0,0,0.4);
+z-index:999;
 }
 
 .logo{
 display:flex;
 align-items:center;
 gap:10px;
+font-size:20px;
 font-weight:bold;
-font-size:22px;
 }
 
 .logo img{
-height:45px;
+height:50px;
 }
 
+/* NAV */
 .nav a{
 color:#dbe7ff;
 text-decoration:none;
-margin-left:20px;
+margin-left:25px;
 font-size:16px;
-transition:0.3s;
+transition:.3s;
 }
 
 .nav a:hover{
@@ -52,6 +59,7 @@ color:#ffc107;
 
 /* HERO */
 .hero{
+text-align:center;
 padding:80px 20px;
 }
 
@@ -65,132 +73,173 @@ color:#ffc107;
 font-size:20px;
 }
 
-/* SERVICES */
-.section{
-<!-- VEHICLE LISTINGS -->
-<section id="listings" style="padding:70px 20px; text-align:center;">
+/* SECTIONS */
+section{
+padding:70px 20px;
+max-width:1100px;
+margin:auto;
+text-align:center;
+}
 
-<h2 style="font-size:32px; margin-bottom:40px;">Latest Vehicles</h2>
+h2{
+font-size:32px;
+margin-bottom:40px;
+}
 
-<div style="
+/* GRID */
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
-max-width:1100px;
-margin:auto;
-">
-
-<!-- BIKE 1 -->
-<div style="background:#0c223f; padding:20px; border-radius:15px;">
-<img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39"
-style="width:100%; border-radius:10px;">
-<h3 style="margin-top:15px;">Honda PCX</h3>
-<p>Brand New • Imported</p>
-<b style="color:#4da6ff;">Contact for Price</b><br><br>
-
-<a href="https://wa.me/94702222842?text=I'm interested in Honda PCX"
-style="background:#25D366;color:white;padding:10px 18px;border-radius:25px;text-decoration:none;">
-Inquire
-</a>
-</div>
-
-<!-- BIKE 2 -->
-<div style="background:#0c223f; padding:20px; border-radius:15px;">
-<img src="https://images.unsplash.com/photo-1583267743825-6fef1baf9e5d"
-style="width:100%; border-radius:10px;">
-<h3 style="margin-top:15px;">48cc Scooter</h3>
-<p>Fuel Efficient • Lightweight</p>
-<b style="color:#4da6ff;">Best Offer</b><br><br>
-
-<a href="https://wa.me/94702222842?text=I'm interested in 48cc Scooter"
-style="background:#25D366;color:white;padding:10px 18px;border-radius:25px;text-decoration:none;">
-Inquire
-</a>
-</div>
-
-<!-- BIKE 3 -->
-<div style="background:#0c223f; padding:20px; border-radius:15px;">
-<img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738"
-style="width:100%; border-radius:10px;">
-<h3 style="margin-top:15px;">Three Wheeler</h3>
-<p>Registered • Low Mileage</p>
-<b style="color:#4da6ff;">Special Deal</b><br><br>
-
-<a href="https://wa.me/94702222842?text=I'm interested in Three Wheeler"
-style="background:#25D366;color:white;padding:10px 18px;border-radius:25px;text-decoration:none;">
-Inquire
-</a>
-</div>
-
-</div>
-</section>
-  
-padding:60px 20px;
 }
 
+/* CARDS */
 .card{
-background:#0d2747;
-margin:15px auto;
+background:#0c223f;
 padding:25px;
 border-radius:15px;
-max-width:400px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+/* LISTING */
+.listing img{
+width:100%;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+/* CONTACT */
+.contact p{
+margin:10px 0;
 font-size:18px;
 }
 
-/* WHATSAPP BUTTON */
+/* FOOTER */
+footer{
+background:#071a2f;
+padding:25px;
+text-align:center;
+margin-top:50px;
+color:#aaa;
+}
+
+/* WHATSAPP */
 .whatsapp{
 position:fixed;
-right:20px;
 bottom:20px;
+right:20px;
 background:#25D366;
 color:white;
 padding:14px 22px;
 border-radius:40px;
 font-weight:bold;
 text-decoration:none;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
 /* MOBILE */
-@media(max-width:700px){
+@media(max-width:768px){
 .nav{display:none;}
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header class="header">
+
 <div class="logo">
-<img src="autospacelogo.png">
+<img src="auto Space.png">
 AUTO SPACE
 </div>
 
 <nav class="nav">
 <a href="#">Home</a>
-<a href="#">Services</a>
-<a href="#">Listings</a>
-<a href="#">About</a>
-<a href="#">Contact</a>
+<a href="#services">Services</a>
+<a href="#listings">Listings</a>
+<a href="#contact">Contact</a>
 </nav>
+
 </header>
 
+<!-- HERO -->
 <section class="hero">
 <h1>AUTO SPACE</h1>
 <p>One-Stop Vehicle Solutions Provider</p>
 </section>
 
-<section class="section">
+<!-- SERVICES -->
+<section id="services">
 <h2>Our Services</h2>
 
-<div class="card">Authorized Dealer – Three Wheelers & Motorcycles</div>
-<div class="card">Japanese Scooters – PCX & 48cc</div>
+<div class="grid">
+
+<div class="card">Authorized Dealer — Brand New Three Wheelers & Motorcycles</div>
+
+<div class="card">Japanese Scooters — PCX & 48cc Models</div>
+
 <div class="card">Vehicle Sourcing Assistance</div>
+
 <div class="card">Islamic Leasing & Insurance</div>
-<div class="card">RMV Registration Transfers</div>
+
+<div class="card">RMV Registration & Transfers</div>
+
+<div class="card">Vehicle Rent / Hire Solutions</div>
+
+</div>
 </section>
 
-<a class="whatsapp" href="https://wa.me/94702222842">WhatsApp</a>
+<!-- LISTINGS -->
+<section id="listings">
+<h2>Latest Vehicles</h2>
+
+<div class="grid">
+
+<div class="card listing">
+<img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39">
+<h3>Honda PCX</h3>
+<p>Brand New Imported</p>
+</div>
+
+<div class="card listing">
+<img src="https://images.unsplash.com/photo-1583267743825-6fef1baf9e5d">
+<h3>48cc Scooters</h3>
+<p>Fuel Efficient Models</p>
+</div>
+
+<div class="card listing">
+<img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738">
+<h3>Three Wheeler</h3>
+<p>Registered Units</p>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+<h2>Contact Us</h2>
+
+<p>📍 Palaviya, Puttalam</p>
+<p>📞 070 2222 842</p>
+<p>📧 info@autospace.lk</p>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+© Auto Space Lanka — All Rights Reserved
+</footer>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/94702222842">
+WhatsApp
+</a>
 
 </body>
 </html>
