@@ -6,61 +6,44 @@
 <title>Auto Space Lanka</title>
 
 <style>
-
-/* RESET */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Segoe UI, sans-serif;
-scroll-behavior:smooth;
-}
-
 body{
-background:#061326;
+margin:0;
+font-family:Arial, sans-serif;
+background:#071a2f;
 color:white;
+text-align:center;
 }
 
 /* HEADER */
 .header{
 position:sticky;
 top:0;
-width:100%;
 background:#071a2f;
-box-shadow:0 2px 15px rgba(0,0,0,0.4);
-z-index:999;
-}
-
-.container{
-max-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
 padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 15px rgba(0,0,0,0.4);
 }
 
-/* LOGO */
 .logo{
 display:flex;
 align-items:center;
 gap:10px;
 font-weight:bold;
-font-size:20px;
-color:white;
+font-size:22px;
 }
 
 .logo img{
 height:45px;
 }
 
-/* NAV */
 .nav a{
 color:#dbe7ff;
 text-decoration:none;
-margin-left:25px;
+margin-left:20px;
 font-size:16px;
-transition:.3s;
+transition:0.3s;
 }
 
 .nav a:hover{
@@ -69,48 +52,87 @@ color:#ffc107;
 
 /* HERO */
 .hero{
-text-align:center;
 padding:80px 20px;
 }
 
 .hero h1{
-font-size:45px;
-letter-spacing:2px;
+font-size:40px;
+margin-bottom:10px;
 }
 
 .hero p{
-margin-top:15px;
-font-size:20px;
 color:#ffc107;
+font-size:20px;
 }
 
-/* SECTIONS */
-section{
-padding:70px 20px;
-max-width:1100px;
-margin:auto;
-text-align:center;
-}
-
-h2{
-font-size:32px;
-margin-bottom:40px;
-}
-
-/* CARDS */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+/* SERVICES */
+.section{
+padding:60px 20px;
 }
 
 .card{
-background:#0c223f;
-padding:30px;
+background:#0d2747;
+margin:15px auto;
+padding:25px;
 border-radius:15px;
-transition:.3s;
-box-shadow:0 0 0 transparent;
+max-width:400px;
+font-size:18px;
 }
 
-.card:hover{
-transform:translate
+/* WHATSAPP BUTTON */
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+color:white;
+padding:14px 22px;
+border-radius:40px;
+font-weight:bold;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* MOBILE */
+@media(max-width:700px){
+.nav{display:none;}
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+<div class="logo">
+<img src="autospacelogo.png">
+AUTO SPACE
+</div>
+
+<nav class="nav">
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Listings</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>AUTO SPACE</h1>
+<p>One-Stop Vehicle Solutions Provider</p>
+</section>
+
+<section class="section">
+<h2>Our Services</h2>
+
+<div class="card">Authorized Dealer – Three Wheelers & Motorcycles</div>
+<div class="card">Japanese Scooters – PCX & 48cc</div>
+<div class="card">Vehicle Sourcing Assistance</div>
+<div class="card">Islamic Leasing & Insurance</div>
+<div class="card">RMV Registration Transfers</div>
+</section>
+
+<a class="whatsapp" href="https://wa.me/94702222842">WhatsApp</a>
+
+</body>
+</html>
