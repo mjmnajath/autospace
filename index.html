@@ -5,178 +5,240 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Auto Space Lanka</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <style>
+
 body{
 margin:0;
-font-family:'Poppins',sans-serif;
-background:#071426;
-color:#fff;
-text-align:center;
+font-family:Segoe UI,Arial;
+background:#0b1220;
+color:white;
 }
 
-header{
-padding:40px 20px;
+/* NAVBAR */
+nav{
+background:#0f172a;
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:999;
+}
+
+nav h1{
+margin:0;
+font-size:22px;
+letter-spacing:1px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-size:15px;
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:60px 20px 40px;
 }
 
 .logo{
-font-size:40px;
-font-weight:700;
-letter-spacing:3px;
+width:240px;
+max-width:90%;
 }
 
 .tagline{
-color:#f7c948;
-font-size:18px;
-margin-top:10px;
+color:#f4b942;
+font-size:20px;
+margin-top:15px;
+font-weight:bold;
 }
 
+/* SECTION */
 .section{
-padding:60px 20px;
-max-width:1100px;
-margin:auto;
+padding:60px 8%;
+text-align:center;
 }
 
-h2{
-font-size:32px;
-margin-bottom:40px;
+.section h2{
+margin-bottom:35px;
+font-size:30px;
 }
 
-.services{
+/* SERVICES */
+.cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
 .card{
-background:#0d1f38;
+background:#111827;
 padding:25px;
-border-radius:18px;
-box-shadow:0 0 25px rgba(0,0,0,0.4);
+border-radius:14px;
 transition:.3s;
 }
 
 .card:hover{
 transform:translateY(-8px);
-background:#132b4d;
+background:#1f2937;
 }
 
-.card span{
-font-size:26px;
-display:block;
-margin-bottom:12px;
-}
-
-.why{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
-}
-
-.why div{
-background:#0d1f38;
+/* LISTINGS */
+.listing{
+background:#111827;
 padding:20px;
-border-radius:15px;
+border-radius:14px;
+}
+
+.price{
+color:#4da6ff;
+font-weight:bold;
+margin-top:10px;
+}
+
+/* ABOUT */
+.about{
+max-width:800px;
+margin:auto;
+line-height:1.7;
+font-size:18px;
+color:#ccc;
+}
+
+/* CONTACT */
+.contact{
+font-size:18px;
+line-height:2;
 }
 
 .whatsapp{
-margin-top:40px;
-}
-
-.whatsapp a{
+position:fixed;
+bottom:20px;
+right:20px;
 background:#25D366;
-padding:16px 35px;
 color:white;
+padding:15px 18px;
+border-radius:50px;
 text-decoration:none;
-border-radius:40px;
-font-size:18px;
-font-weight:600;
-box-shadow:0 0 20px rgba(37,211,102,.5);
-transition:.3s;
+font-weight:bold;
+box-shadow:0 0 15px rgba(0,0,0,.4);
 }
 
-.whatsapp a:hover{
-background:#1ebe5d;
-}
-
+/* FOOTER */
 footer{
-background:#050f1f;
-padding:30px 15px;
-font-size:14px;
+background:#020617;
+padding:30px;
+text-align:center;
 color:#aaa;
-margin-top:60px;
+margin-top:50px;
 }
+
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="logo">AUTO SPACE</div>
-<div class="tagline">One-Stop Vehicle Solutions Provider</div>
-</header>
+<!-- NAVBAR -->
+<nav>
+<h1>AUTO SPACE</h1>
+<div>
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#listings">Listings</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
 
-<section class="section">
+<!-- HERO -->
+<section class="hero">
+<img src="logo.png" class="logo">
+<div class="tagline">One-Stop Vehicle Solutions Provider</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
 <h2>Our Services</h2>
 
-<div class="services">
+<div class="cards">
 
-<div class="card">
-<span>🏍</span>
-Authorized Dealer – Brand New Three Wheelers & Motorcycles
-</div>
+<div class="card">Authorized Dealer<br>Three Wheelers & Motorcycles</div>
 
-<div class="card">
-<span>🇯🇵</span>
-Japanese Scooters – PCX & 48cc Models
-</div>
+<div class="card">Japanese Scooters<br>PCX & 48cc Models</div>
 
-<div class="card">
-<span>📄</span>
-Vehicle Sourcing & Purchase Assistance
-</div>
+<div class="card">Vehicle Sourcing & Purchase Assistance</div>
 
-<div class="card">
-<span>💳</span>
-Islamic Leasing & Insurance Assistance
-</div>
+<div class="card">Islamic Leasing & Insurance Support</div>
 
-<div class="card">
-<span>🪪</span>
-RMV Registration & Ownership Transfer
-</div>
+<div class="card">RMV Registration & Transfers</div>
 
-<div class="card">
-<span>🚗</span>
-Rent / Hire Vehicle Solutions
-</div>
-
-</div>
-
-<div class="whatsapp">
-<a href="https://wa.me/94702222842">Chat on WhatsApp</a>
-</div>
-</section>
-
-<section class="section">
-<h2>Why Choose Auto Space?</h2>
-
-<div class="why">
-
-<div>✔ Trusted Vehicle Partner</div>
-<div>✔ Genuine Imported Units</div>
-<div>✔ Fast Processing</div>
-<div>✔ Competitive Prices</div>
-<div>✔ Customer-Focused Service</div>
-<div>✔ Islandwide Support</div>
+<div class="card">Vehicle Rent / Hire Solutions</div>
 
 </div>
 </section>
 
+<!-- LISTINGS -->
+<section id="listings" class="section">
+<h2>Latest Vehicles</h2>
+
+<div class="cards">
+
+<div class="listing">
+<h3>Honda PCX 125</h3>
+<p>Premium Scooter — Brand New</p>
+<div class="price">Contact for Price</div>
+</div>
+
+<div class="listing">
+<h3>Japanese 48cc Scooters</h3>
+<p>Fuel Efficient & Affordable</p>
+<div class="price">Best Deals Available</div>
+</div>
+
+<div class="listing">
+<h3>Brand New Three Wheelers</h3>
+<p>Authorized Dealer Units</p>
+<div class="price">Special Offers</div>
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+<h2>About Auto Space</h2>
+
+<div class="about">
+Auto Space is a trusted vehicle solutions provider in Sri Lanka offering sourcing,
+sales, leasing assistance, registrations, and dealership services.  
+We specialize in premium Japanese scooters, brand new vehicles, and professional
+customer service with transparent processes.
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+<h2>Contact Us</h2>
+
+<div class="contact">
+📍 Palaviya, Puttalam<br>
+📞 070 2222 842<br>
+📧 autospace.lk@gmail.com
+</div>
+
+</section>
+
+<!-- WHATSAPP BUTTON -->
+<a class="whatsapp" href="https://wa.me/94702222842">WhatsApp</a>
+
+<!-- FOOTER -->
 <footer>
-Palaviya, Puttalam • Call: 070 2222 842<br>
-© Auto Space Lanka
+© Auto Space Lanka — All Rights Reserved
 </footer>
 
 </body>
