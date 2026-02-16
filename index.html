@@ -1,88 +1,3 @@
-<header class="header">
-  <div class="container">
-
-    <div class="logo">
-      <img src="autospacelogo.png" alt="Auto Space Logo">
-      <span>AUTO SPACE</span>
-    </div>
-
-    <nav class="nav">
-      <a href="#">Home</a>
-      <a href="#services">Services</a>
-      <a href="#listings">Listings</a>
-      <a href="#about">About</a>
-      <a href="#contact" class="btn">Contact</a>
-    </nav>
-
-  </div>
-</header>
-
-/* HEADER */
-.header{
-  position:sticky;
-  top:0;
-  width:100%;
-  background:#071a2f;
-  box-shadow:0 2px 15px rgba(0,0,0,0.4);
-  z-index:999;
-}
-
-.container{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:15px 20px;
-}
-
-/* LOGO */
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:bold;
-  font-size:20px;
-  color:white;
-}
-
-.logo img{
-  height:50px;
-}
-
-/* NAV */
-.nav a{
-  color:#dbe7ff;
-  text-decoration:none;
-  margin-left:25px;
-  font-size:16px;
-  transition:0.3s;
-}
-
-.nav a:hover{
-  color:#ffc107;
-}
-
-/* CONTACT BUTTON */
-.btn{
-  background:#28c76f;
-  padding:10px 18px;
-  border-radius:25px;
-  color:white !important;
-  font-weight:bold;
-}
-
-.btn:hover{
-  background:#1faa59;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .nav{
-    display:none;
-  }
-}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,239 +7,110 @@
 
 <style>
 
-body{
+/* RESET */
+*{
 margin:0;
-font-family:Segoe UI,Arial;
-background:#0b1220;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#061326;
 color:white;
 }
 
-/* NAVBAR */
-nav{
-background:#0f172a;
-padding:15px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
+/* HEADER */
+.header{
 position:sticky;
 top:0;
+width:100%;
+background:#071a2f;
+box-shadow:0 2px 15px rgba(0,0,0,0.4);
 z-index:999;
 }
 
-nav h1{
-margin:0;
-font-size:22px;
-letter-spacing:1px;
+.container{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 20px;
 }
 
-nav a{
+/* LOGO */
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:bold;
+font-size:20px;
 color:white;
+}
+
+.logo img{
+height:45px;
+}
+
+/* NAV */
+.nav a{
+color:#dbe7ff;
 text-decoration:none;
 margin-left:25px;
-font-size:15px;
+font-size:16px;
+transition:.3s;
+}
+
+.nav a:hover{
+color:#ffc107;
 }
 
 /* HERO */
 .hero{
 text-align:center;
-padding:60px 20px 40px;
+padding:80px 20px;
 }
 
-.logo{
-width:240px;
-max-width:90%;
+.hero h1{
+font-size:45px;
+letter-spacing:2px;
 }
 
-.tagline{
-color:#f4b942;
-font-size:20px;
+.hero p{
 margin-top:15px;
-font-weight:bold;
+font-size:20px;
+color:#ffc107;
 }
 
-/* SECTION */
-.section{
-padding:60px 8%;
+/* SECTIONS */
+section{
+padding:70px 20px;
+max-width:1100px;
+margin:auto;
 text-align:center;
 }
 
-.section h2{
-margin-bottom:35px;
-font-size:30px;
+h2{
+font-size:32px;
+margin-bottom:40px;
 }
 
-/* SERVICES */
-.cards{
+/* CARDS */
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
 .card{
-background:#111827;
-padding:25px;
-border-radius:14px;
+background:#0c223f;
+padding:30px;
+border-radius:15px;
 transition:.3s;
+box-shadow:0 0 0 transparent;
 }
 
 .card:hover{
-transform:translateY(-8px);
-background:#1f2937;
-}
-
-/* LISTINGS */
-.listing{
-background:#111827;
-padding:20px;
-border-radius:14px;
-}
-
-.price{
-color:#4da6ff;
-font-weight:bold;
-margin-top:10px;
-}
-
-/* ABOUT */
-.about{
-max-width:800px;
-margin:auto;
-line-height:1.7;
-font-size:18px;
-color:#ccc;
-}
-
-/* CONTACT */
-.contact{
-font-size:18px;
-line-height:2;
-}
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px 18px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-box-shadow:0 0 15px rgba(0,0,0,.4);
-}
-
-/* FOOTER */
-footer{
-background:#020617;
-padding:30px;
-text-align:center;
-color:#aaa;
-margin-top:50px;
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- NAVBAR -->
-<nav>
-<h1>AUTO SPACE</h1>
-<div>
-<a href="#">Home</a>
-<a href="#services">Services</a>
-<a href="#listings">Listings</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-<img src="logo.png" class="logo">
-<div class="tagline">One-Stop Vehicle Solutions Provider</div>
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="section">
-<h2>Our Services</h2>
-
-<div class="cards">
-
-<div class="card">Authorized Dealer<br>Three Wheelers & Motorcycles</div>
-
-<div class="card">Japanese Scooters<br>PCX & 48cc Models</div>
-
-<div class="card">Vehicle Sourcing & Purchase Assistance</div>
-
-<div class="card">Islamic Leasing & Insurance Support</div>
-
-<div class="card">RMV Registration & Transfers</div>
-
-<div class="card">Vehicle Rent / Hire Solutions</div>
-
-</div>
-</section>
-
-<!-- LISTINGS -->
-<section id="listings" class="section">
-<h2>Latest Vehicles</h2>
-
-<div class="cards">
-
-<div class="listing">
-<h3>Honda PCX 125</h3>
-<p>Premium Scooter — Brand New</p>
-<div class="price">Contact for Price</div>
-</div>
-
-<div class="listing">
-<h3>Japanese 48cc Scooters</h3>
-<p>Fuel Efficient & Affordable</p>
-<div class="price">Best Deals Available</div>
-</div>
-
-<div class="listing">
-<h3>Brand New Three Wheelers</h3>
-<p>Authorized Dealer Units</p>
-<div class="price">Special Offers</div>
-</div>
-
-</div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="section">
-<h2>About Auto Space</h2>
-
-<div class="about">
-Auto Space is a trusted vehicle solutions provider in Sri Lanka offering sourcing,
-sales, leasing assistance, registrations, and dealership services.  
-We specialize in premium Japanese scooters, brand new vehicles, and professional
-customer service with transparent processes.
-</div>
-
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section">
-<h2>Contact Us</h2>
-
-<div class="contact">
-📍 Palaviya, Puttalam<br>
-📞 070 2222 842<br>
-📧 autospace.lk@gmail.com
-</div>
-
-</section>
-
-<!-- WHATSAPP BUTTON -->
-<a class="whatsapp" href="https://wa.me/94702222842">WhatsApp</a>
-
-<!-- FOOTER -->
-<footer>
-© Auto Space Lanka — All Rights Reserved
-</footer>
-
-</body>
-</html>
+transform:translate
