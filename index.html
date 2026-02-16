@@ -1,3 +1,88 @@
+<header class="header">
+  <div class="container">
+
+    <div class="logo">
+      <img src="autospacelogo.png" alt="Auto Space Logo">
+      <span>AUTO SPACE</span>
+    </div>
+
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="#listings">Listings</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="btn">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+/* HEADER */
+.header{
+  position:sticky;
+  top:0;
+  width:100%;
+  background:#071a2f;
+  box-shadow:0 2px 15px rgba(0,0,0,0.4);
+  z-index:999;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px 20px;
+}
+
+/* LOGO */
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:bold;
+  font-size:20px;
+  color:white;
+}
+
+.logo img{
+  height:50px;
+}
+
+/* NAV */
+.nav a{
+  color:#dbe7ff;
+  text-decoration:none;
+  margin-left:25px;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.nav a:hover{
+  color:#ffc107;
+}
+
+/* CONTACT BUTTON */
+.btn{
+  background:#28c76f;
+  padding:10px 18px;
+  border-radius:25px;
+  color:white !important;
+  font-weight:bold;
+}
+
+.btn:hover{
+  background:#1faa59;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .nav{
+    display:none;
+  }
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
