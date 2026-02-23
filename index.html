@@ -3,39 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Auto Space System</title>
+<title>Auto Space Lanka</title>
 
 <style>
 body{margin:0;font-family:Segoe UI;background:#071a2f;color:white}
-header{background:#081f3a;padding:15px 8%;display:flex;justify-content:space-between}
+header{background:#081f3a;padding:15px 8%;display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:22px;font-weight:bold}
+nav a{color:#cfe3ff;margin-left:20px;text-decoration:none}
+.hero{text-align:center;padding:80px 20px;background:linear-gradient(135deg,#071a2f,#0c2d52)}
+.hero h1{font-size:40px;margin-bottom:10px}
+.btn{background:#28c76f;color:white;padding:12px 22px;border-radius:25px;text-decoration:none;font-weight:bold}
 section{padding:60px 8%}
 .title{text-align:center;font-size:30px;margin-bottom:30px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
-.card{background:#0d2b4c;padding:20px;border-radius:15px;text-align:center}
-.card img{width:100%;border-radius:10px;margin-bottom:10px}
-input,select{padding:10px;margin:5px;border:none;border-radius:8px}
-button{background:#28c76f;color:white;border:none;padding:10px 20px;border-radius:25px;font-weight:bold;cursor:pointer}
-.dashboard{background:#0d2b4c;padding:20px;border-radius:15px;margin-top:30px}
+
+.controls{text-align:center;margin-bottom:30px}
+input,select{
+padding:10px;
+border-radius:8px;
+border:none;
+margin:5px;
+width:200px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:#0d2b4c;
+padding:20px;
+border-radius:15px;
+text-align:center;
+transition:.3s;
+}
+.card:hover{transform:translateY(-6px);background:#113961}
+.price{color:#28c76f;font-size:20px;font-weight:bold;margin:10px 0}
+
+footer{background:#04101f;text-align:center;padding:20px;color:#9fb8d9;margin-top:40px}
+.admin{background:#0d2b4c;padding:25px;border-radius:15px;margin-top:40px}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo">AUTO SPACE ADMIN SYSTEM</div>
+<div class="logo">AUTO SPACE</div>
+<nav>
+<a href="#">Home</a>
+<a href="#listings">Listings</a>
+<a href="#admin">Add Vehicle</a>
+</nav>
 </header>
 
-<!-- VEHICLES -->
-<section>
+<div class="hero">
+<h1>One-Stop Vehicle Solutions Provider</h1>
+<p>Buy • Sell • Transfer • Source</p>
+<a class="btn" href="https://wa.me/94702222842">WhatsApp Now</a>
+</div>
+
+<section id="listings">
 <h2 class="title">Vehicle Listings</h2>
-<div class="grid" id="listings"></div>
+
+<div class="controls">
+<input type="text" id="search" placeholder="Search vehicle...">
+<select id="filter">
+<option value="all">All Types</option>
+<option value="Car">Car</option>
+<option value="Bike">Bike</option>
+<option value="Threewheel">Three Wheel</option>
+</select>
+</div>
+
+<div class="grid" id="vehicleContainer"></div>
 </section>
 
-<!-- ADMIN ADD -->
-<section>
-<h2 class="title">Add Vehicle</h2>
+<section id="admin">
+<h2 class="title">Add Vehicle (Admin)</h2>
 
+<div class="admin">
 <input id="name" placeholder="Vehicle Name">
 <input id="price" placeholder="Price">
 <select id="type">
@@ -43,121 +90,62 @@ button{background:#28c76f;color:white;border:none;padding:10px 20px;border-radiu
 <option>Bike</option>
 <option>Threewheel</option>
 </select>
-<input type="file" id="img">
-
 <br><br>
-<button onclick="addVehicle()">Add Vehicle</button>
+<button class="btn" onclick="addVehicle()">Add Vehicle</button>
+</div>
 </section>
 
-<!-- INQUIRY DASHBOARD -->
-<section>
-<h2 class="title">Customer Inquiries</h2>
-<div class="dashboard" id="inquiries"></div>
-</section>
-
-<!-- BOOKINGS DASHBOARD -->
-<section>
-<h2 class="title">Bookings</h2>
-<div class="dashboard" id="bookings"></div>
-</section>
+<footer>
+Auto Space Lanka — Colombo Road, Palaviya, Puttalam<br>
+WhatsApp: 070 2222 842
+</footer>
 
 <script>
 
-/* DATABASE */
-let vehicles=JSON.parse(localStorage.getItem("vehicles"))||[];
-let inquiries=JSON.parse(localStorage.getItem("inquiries"))||[];
-let bookings=JSON.parse(localStorage.getItem("bookings"))||[];
+let vehicles=[
+{name:"Suzuki Alto",price:"LKR 3,200,000",type:"Car"},
+{name:"Honda Dio",price:"LKR 950,000",type:"Bike"},
+{name:"Bajaj Three Wheel",price:"LKR 1,850,000",type:"Threewheel"}
+];
 
-/* SAVE */
-function save(){
-localStorage.setItem("vehicles",JSON.stringify(vehicles));
-localStorage.setItem("inquiries",JSON.stringify(inquiries));
-localStorage.setItem("bookings",JSON.stringify(bookings));
-}
-
-/* RENDER VEHICLES */
 function render(){
-let box=document.getElementById("listings");
-box.innerHTML="";
+let search=document.getElementById("search").value.toLowerCase();
+let filter=document.getElementById("filter").value;
+let container=document.getElementById("vehicleContainer");
+container.innerHTML="";
 
-vehicles.forEach((v,i)=>{
-box.innerHTML+=`
+vehicles
+.filter(v=>v.name.toLowerCase().includes(search))
+.filter(v=>filter==="all"||v.type===filter)
+.forEach(v=>{
+container.innerHTML+=`
 <div class="card">
-<img src="${v.img}">
 <h3>${v.name}</h3>
-<p>${v.type}</p>
-<b>${v.price}</b><br><br>
-
-<button onclick="inquire(${i})">Inquire</button>
-<button onclick="book(${i})">Book</button>
+<div>${v.type}</div>
+<div class="price">${v.price}</div>
+<a class="btn" href="https://wa.me/94702222842?text=I'm interested in ${v.name}">
+Inquire</a>
 </div>`;
 });
-renderDashboards();
 }
 
-/* ADD VEHICLE */
 function addVehicle(){
-let file=document.getElementById("img").files[0];
-let reader=new FileReader();
+let name=document.getElementById("name").value;
+let price=document.getElementById("price").value;
+let type=document.getElementById("type").value;
 
-reader.onload=function(){
-vehicles.push({
-name:document.getElementById("name").value,
-price:document.getElementById("price").value,
-type:document.getElementById("type").value,
-img:reader.result
-});
-save();
+if(name===""||price==="") return alert("Enter details");
+
+vehicles.push({name,price,type});
 render();
-};
-
-if(file) reader.readAsDataURL(file);
 }
 
-/* INQUIRY */
-function inquire(i){
-let name=prompt("Customer Name");
-let phone=prompt("Phone Number");
-
-inquiries.push({
-vehicle:vehicles[i].name,
-name,
-phone,
-date:new Date().toLocaleString()
-});
-
-save();
-renderDashboards();
-}
-
-/* BOOK */
-function book(i){
-let name=prompt("Customer Name");
-let phone=prompt("Phone Number");
-
-bookings.push({
-vehicle:vehicles[i].name,
-name,
-phone,
-date:new Date().toLocaleString()
-});
-
-save();
-renderDashboards();
-}
-
-/* DASHBOARDS */
-function renderDashboards(){
-
-document.getElementById("inquiries").innerHTML=
-inquiries.map(i=>`• ${i.vehicle} — ${i.name} (${i.phone})`).join("<br>");
-
-document.getElementById("bookings").innerHTML=
-bookings.map(b=>`• ${b.vehicle} — ${b.name} (${b.phone})`).join("<br>");
-}
+document.getElementById("search").oninput=render;
+document.getElementById("filter").onchange=render;
 
 render();
 
 </script>
+
 </body>
 </html>
