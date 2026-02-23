@@ -1,312 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auto Space Lanka</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Auto Space System</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Segoe UI, sans-serif;
-}
-
-body{
-background:#061326;
-color:white;
-}
-
-/* HEADER */
-.header{
-position:sticky;
-top:0;
-background:#071a2f;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 25px;
-z-index:999;
-}
-
-.logo{
-display:autospacelogo.png;
-align-items:center;
-gap:10px;
-font-size:22px;
-font-weight:bold;
-}
-
-.logo img{
-autospacelogo.png;
-}
-
-/* NAV */
-.nav a{
-margin-left:25px;
-text-decoration:none;
-color:#dbe7ff;
-transition:.3s;
-}
-
-.nav a:hover{
-color:#ffc107;
-}
-
-/* MOBILE MENU */
-.menu-btn{
-display:none;
-font-size:28px;
-cursor:pointer;
-}
-
-/* HERO */
-.hero{
-text-align:center;
-padding:90px 20px;
-}
-
-.hero h1{
-font-size:45px;
-}
-
-.hero p{
-color:#ffc107;
-margin-top:10px;
-font-size:20px;
-}
-
-/* SECTIONS */
-section{
-padding:70px 20px;
-max-width:1100px;
-margin:auto;
-text-align:center;
-}
-
-h2{
-font-size:32px;
-margin-bottom:40px;
-}
-
-/* CARDS */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.card{
-background:#0c223f;
-padding:25px;
-border-radius:15px;
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-}
-
-/* SEARCH */
-.search{
-margin-bottom:30px;
-}
-
-.search input, select{
-padding:12px;
-border:none;
-border-radius:8px;
-margin:5px;
-font-size:16px;
-}
-
-/* CONTACT */
-.contact p{
-margin:10px 0;
-font-size:18px;
-}
-
-/* FOOTER */
-footer{
-background:#071a2f;
-padding:25px;
-margin-top:60px;
-color:#aaa;
-}
-
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px 22px;
-color:white;
-text-decoration:none;
-border-radius:40px;
-font-weight:bold;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-
-.nav{
-display:none;
-position:absolute;
-top:70px;
-right:0;
-background:#071a2f;
-width:200px;
-padding:20px;
-}
-
-.nav a{
-display:block;
-margin:15px 0;
-}
-
-.menu-btn{
-display:block;
-}
-
-}
-
+body{margin:0;font-family:Segoe UI;background:#071a2f;color:white}
+header{background:#081f3a;padding:15px 8%;display:flex;justify-content:space-between}
+.logo{font-size:22px;font-weight:bold}
+section{padding:60px 8%}
+.title{text-align:center;font-size:30px;margin-bottom:30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
+.card{background:#0d2b4c;padding:20px;border-radius:15px;text-align:center}
+.card img{width:100%;border-radius:10px;margin-bottom:10px}
+input,select{padding:10px;margin:5px;border:none;border-radius:8px}
+button{background:#28c76f;color:white;border:none;padding:10px 20px;border-radius:25px;font-weight:bold;cursor:pointer}
+.dashboard{background:#0d2b4c;padding:20px;border-radius:15px;margin-top:30px}
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header class="header">
-
-<div class="logo">
-<img src="auto Space.png">
-AUTO SPACE
-</div>
-
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-<nav class="nav" id="navMenu">
-<a href="#">Home</a>
-<a href="#services">Services</a>
-<a href="#vehicles">Vehicles</a>
-<a href="#contact">Contact</a>
-</nav>
-
+<header>
+<div class="logo">AUTO SPACE ADMIN SYSTEM</div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-<h1>AUTO SPACE</h1>
-<p>One-Stop Vehicle Solutions Provider</p>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-<h2>Our Services</h2>
-
-<div class="grid">
-<div class="card">Authorized Dealer – Brand New Three Wheelers & Motorcycles</div>
-<div class="card">Japanese Scooters – PCX & 48cc Models</div>
-<div class="card">Vehicle Sourcing Assistance</div>
-<div class="card">Islamic Leasing & Insurance</div>
-<div class="card">RMV Registration Transfers</div>
-<div class="card">Vehicle Rent / Hire Solutions</div>
-</div>
-
-</section>
-
 <!-- VEHICLES -->
-<section id="vehicles">
+<section>
+<h2 class="title">Vehicle Listings</h2>
+<div class="grid" id="listings"></div>
+</section>
 
-<h2>Available Vehicles</h2>
+<!-- ADMIN ADD -->
+<section>
+<h2 class="title">Add Vehicle</h2>
 
-<div class="search">
-<input type="text" id="search" placeholder="Search model...">
-<select id="category">
-<option value="all">All Categories</option>
-<option value="scooter">Scooter</option>
-<option value="bike">Motorcycle</option>
-<option value="three">Three Wheeler</option>
+<input id="name" placeholder="Vehicle Name">
+<input id="price" placeholder="Price">
+<select id="type">
+<option>Car</option>
+<option>Bike</option>
+<option>Threewheel</option>
 </select>
-</div>
+<input type="file" id="img">
 
-<div class="grid" id="vehicleList">
-
-<div class="card" data-name="pcx" data-cat="scooter">
-<h3>Honda PCX</h3>
-<p>Brand New Imported</p>
-</div>
-
-<div class="card" data-name="today" data-cat="scooter">
-<h3>Honda Today 48cc</h3>
-<p>Fuel Efficient Model</p>
-</div>
-
-<div class="card" data-name="dio" data-cat="scooter">
-<h3>Honda Dio 48cc</h3>
-<p>Lightweight & Reliable</p>
-</div>
-
-<div class="card" data-name="suzuki" data-cat="bike">
-<h3>Suzuki Motorcycle</h3>
-<p>Authorized Dealer</p>
-</div>
-
-<div class="card" data-name="atul" data-cat="three">
-<h3>Atul Three Wheeler</h3>
-<p>Authorized Dealer</p>
-</div>
-
-</div>
+<br><br>
+<button onclick="addVehicle()">Add Vehicle</button>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
-<h2>Contact Us</h2>
-<p>📍 Colombo Road, Palaviya, Puttalam</p>
-<p>📞 070 2222 842</p>
-<p>📧 info@autospace.lk</p>
+<!-- INQUIRY DASHBOARD -->
+<section>
+<h2 class="title">Customer Inquiries</h2>
+<div class="dashboard" id="inquiries"></div>
 </section>
 
-<footer>
-© Auto Space Lanka — All Rights Reserved
-</footer>
-
-<a class="whatsapp" href="https://wa.me/94702222842">WhatsApp</a>
+<!-- BOOKINGS DASHBOARD -->
+<section>
+<h2 class="title">Bookings</h2>
+<div class="dashboard" id="bookings"></div>
+</section>
 
 <script>
 
-/* MOBILE MENU */
-function toggleMenu(){
-var menu=document.getElementById("navMenu");
-menu.style.display=menu.style.display==="block"?"none":"block";
+/* DATABASE */
+let vehicles=JSON.parse(localStorage.getItem("vehicles"))||[];
+let inquiries=JSON.parse(localStorage.getItem("inquiries"))||[];
+let bookings=JSON.parse(localStorage.getItem("bookings"))||[];
+
+/* SAVE */
+function save(){
+localStorage.setItem("vehicles",JSON.stringify(vehicles));
+localStorage.setItem("inquiries",JSON.stringify(inquiries));
+localStorage.setItem("bookings",JSON.stringify(bookings));
 }
 
-/* SEARCH FILTER */
-document.getElementById("search").addEventListener("keyup",filter);
-document.getElementById("category").addEventListener("change",filter);
+/* RENDER VEHICLES */
+function render(){
+let box=document.getElementById("listings");
+box.innerHTML="";
 
-function filter(){
+vehicles.forEach((v,i)=>{
+box.innerHTML+=`
+<div class="card">
+<img src="${v.img}">
+<h3>${v.name}</h3>
+<p>${v.type}</p>
+<b>${v.price}</b><br><br>
 
-let text=document.getElementById("search").value.toLowerCase();
-let cat=document.getElementById("category").value;
-let cards=document.querySelectorAll("#vehicleList .card");
-
-cards.forEach(card=>{
-let name=card.dataset.name;
-let category=card.dataset.cat;
-
-let matchText=name.includes(text);
-let matchCat=(cat==="all"||cat===category);
-
-card.style.display=(matchText && matchCat)?"block":"none";
+<button onclick="inquire(${i})">Inquire</button>
+<button onclick="book(${i})">Book</button>
+</div>`;
 });
+renderDashboards();
 }
+
+/* ADD VEHICLE */
+function addVehicle(){
+let file=document.getElementById("img").files[0];
+let reader=new FileReader();
+
+reader.onload=function(){
+vehicles.push({
+name:document.getElementById("name").value,
+price:document.getElementById("price").value,
+type:document.getElementById("type").value,
+img:reader.result
+});
+save();
+render();
+};
+
+if(file) reader.readAsDataURL(file);
+}
+
+/* INQUIRY */
+function inquire(i){
+let name=prompt("Customer Name");
+let phone=prompt("Phone Number");
+
+inquiries.push({
+vehicle:vehicles[i].name,
+name,
+phone,
+date:new Date().toLocaleString()
+});
+
+save();
+renderDashboards();
+}
+
+/* BOOK */
+function book(i){
+let name=prompt("Customer Name");
+let phone=prompt("Phone Number");
+
+bookings.push({
+vehicle:vehicles[i].name,
+name,
+phone,
+date:new Date().toLocaleString()
+});
+
+save();
+renderDashboards();
+}
+
+/* DASHBOARDS */
+function renderDashboards(){
+
+document.getElementById("inquiries").innerHTML=
+inquiries.map(i=>`• ${i.vehicle} — ${i.name} (${i.phone})`).join("<br>");
+
+document.getElementById("bookings").innerHTML=
+bookings.map(b=>`• ${b.vehicle} — ${b.name} (${b.phone})`).join("<br>");
+}
+
+render();
 
 </script>
-
 </body>
 </html>
