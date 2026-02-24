@@ -258,7 +258,7 @@ nav ul{gap:20px;}
 <div class="card"><h3>Vehicle Registration & Ownership Transfer</h3><p>RMV documentation and complete processing assistance.</p></div>
 <div class="card"><h3>Islamic Leasing & Insurance Assistance</h3><p>Shariah-compliant finance solutions.</p></div>
 <div class="card"><h3>Hire / Rent Solutions</h3><p>Flexible hire for professionals & corporates.</p></div>
-<div class="card"><h3>All Other Vehicle Services</h3><p>Your complete vehicle solutions partner.</p></div>
+<div class="card"><h3>All Other Vehicle Related Services</h3><p>Your complete vehicle solutions partner.</p></div>
 
 </div>
 </section>
@@ -267,7 +267,8 @@ nav ul{gap:20px;}
 <h2 class="section-title">Customer Inquiry</h2>
 
 <form id="inquiryForm">
-<input type="text" id="name" placeholder="Full Name" required>
+<input type="text" id="name" placeholder="Name" required>
+<input type="text" id="city" placeholder="City" required>
 <input type="text" id="phone" placeholder="Phone Number" required>
 
 <select id="inquiryType" required onchange="handleInquiryChange()">
@@ -283,7 +284,7 @@ nav ul{gap:20px;}
 <option>Other</option>
 </select>
 
-<input type="text" id="vehicleDetails" class="hidden" placeholder="Vehicle Model / Details">
+<input type="text" id="vehicleDetails" class="hidden" placeholder="Vehicle Make / Model / Details">
 <textarea id="message" rows="4" placeholder="Additional Message"></textarea>
 
 <button type="submit" class="btn">Send via WhatsApp</button>
@@ -356,7 +357,7 @@ const type=document.getElementById("inquiryType").value;
 const vehicle=document.getElementById("vehicleDetails").value;
 const message=document.getElementById("message").value;
 
-let text="New Inquiry - Auto Space Lanka%0A";
+let text="New Inquiry - Auto Space%0A";
 text+="Name: "+name+"%0A";
 text+="Phone: "+phone+"%0A";
 text+="Inquiry: "+type+"%0A";
