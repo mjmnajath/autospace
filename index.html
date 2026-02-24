@@ -12,17 +12,16 @@
 html{scroll-behavior:smooth;}
 body{font-family:Segoe UI,sans-serif;background:#000;color:#fff;overflow-x:hidden;}
 
-/* GOLD ANIMATED DIVIDER */
 .divider{
 height:2px;
 width:100%;
 background:linear-gradient(90deg,transparent,#d4af37,transparent);
-animation:shine 3s infinite;
-margin:0;
+background-size:200% auto;
+animation:shine 3s linear infinite;
 }
 @keyframes shine{
-0%{background-position:-200px;}
-100%{background-position:200px;}
+0%{background-position:-200% center;}
+100%{background-position:200% center;}
 }
 
 header{
@@ -105,6 +104,8 @@ background:#d4af37;
 color:#000;
 transition:.3s;
 box-shadow:0 0 20px rgba(212,175,55,.6);
+border:none;
+cursor:pointer;
 }
 
 .btn:hover{background:#fff;transform:scale(1.05);}
@@ -116,7 +117,11 @@ background:#000;
 
 .section-title{text-align:center;font-size:36px;margin-bottom:60px;color:#d4af37;}
 
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;}
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
 
 .card{
 background:#111;
@@ -125,21 +130,39 @@ border-radius:15px;
 border:1px solid rgba(212,175,55,.2);
 transition:.4s;
 }
-.card:hover{transform:translateY(-10px);box-shadow:0 10px 35px rgba(212,175,55,.3);}
-.card h3{color:#d4af37;margin-bottom:10px;font-size:18px;}
 
-.brands{text-align:center;}
-.brands img{height:70px;margin:20px;}
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 35px rgba(212,175,55,.3);
+}
 
-.badge{text-align:center;font-size:20px;color:#d4af37;margin-bottom:20px;}
-
-.about{max-width:850px;margin:auto;text-align:center;font-size:18px;color:#ccc;}
+.card h3{color:#d4af37;margin-bottom:10px;}
 
 .contact{text-align:center;font-size:20px;line-height:2;}
 .contact a{color:#d4af37;text-decoration:none;font-weight:bold;}
 .contact a:hover{color:#fff;}
 
-/* PREMIUM FOOTER */
+form{
+max-width:600px;
+margin:40px auto 0 auto;
+background:#111;
+padding:30px;
+border-radius:15px;
+border:1px solid rgba(212,175,55,.2);
+}
+
+input,textarea,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #333;
+background:#000;
+color:#fff;
+}
+
+.map{margin-top:40px;border-radius:15px;overflow:hidden;}
+
 footer{
 background:#0b0b0b;
 padding:60px 10%;
@@ -152,30 +175,17 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:40px;
 }
 
-.footer-title{
-color:#d4af37;
-margin-bottom:20px;
-font-size:18px;
-}
+.footer-title{color:#d4af37;margin-bottom:20px;}
 
-.footer-grid p,
 .footer-grid a{
-color:#ccc;
-font-size:14px;
-text-decoration:none;
-display:block;
-margin-bottom:8px;
+color:#ccc;text-decoration:none;margin-bottom:8px;display:block;
 }
-
 .footer-grid a:hover{color:#d4af37;}
 
 .footer-bottom{
-text-align:center;
-margin-top:40px;
-padding-top:20px;
+text-align:center;margin-top:40px;padding-top:20px;
 border-top:1px solid rgba(212,175,55,.2);
-color:#777;
-font-size:13px;
+color:#777;font-size:13px;
 }
 
 .whatsapp{
@@ -191,7 +201,6 @@ font-weight:bold;
 box-shadow:0 0 20px rgba(0,0,0,.8);
 }
 
-/* Mobile */
 @media(max-width:768px){
 nav ul{
 flex-direction:column;
@@ -204,7 +213,7 @@ padding:20px;
 display:none;
 }
 nav ul.show{display:block;}
-.menu-toggle{display:block;cursor:pointer;color:#d4af37;font-size:26px;}
+.menu-toggle{display:block;color:#d4af37;font-size:26px;cursor:pointer;}
 .hero h1{font-size:30px;}
 }
 </style>
@@ -218,9 +227,7 @@ nav ul.show{display:block;}
 <nav>
 <ul>
 <li><a href="#home">Home</a></li>
-<li><a href="#dealership">Dealership</a></li>
 <li><a href="#services">Services</a></li>
-<li><a href="#about">About</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 </nav>
@@ -231,18 +238,7 @@ nav ul.show{display:block;}
 <section class="hero" id="home">
 <h1>Authorized Vehicle Dealer & Solutions Provider</h1>
 <p>Professional • Trusted • Customer Focused</p>
-<a class="btn" href="https://wa.me/94702222842">Chat on WhatsApp</a>
-</section>
-
-<div class="divider"></div>
-
-<section id="dealership">
-<h2 class="section-title">Authorized Dealership</h2>
-<div class="badge">Officially Authorized Dealer in Puttalam Region</div>
-<div class="brands">
-<img src="suzuki.png" alt="Suzuki">
-<img src="atul.png" alt="Atul">
-</div>
+<a class="btn" href="https://wa.me/94702222842" target="_blank">Chat on WhatsApp</a>
 </section>
 
 <div class="divider"></div>
@@ -252,56 +248,71 @@ nav ul.show{display:block;}
 <div class="services">
 <div class="card"><h3>Authorized Dealer – Softlogic Automobiles</h3><p>Brand New Three Wheelers – Atul (India)</p></div>
 <div class="card"><h3>Authorized Dealer – Suzuki Motors Lanka</h3><p>Brand New Motorcycles – Suzuki</p></div>
-<div class="card"><h3>Japanese Scooters</h3><p>Premium Models & Urban Models</p></div>
-<div class="card"><h3>Vehicle Registration & Ownership Transfer</h3><p>Complete RMV documentation support.</p></div>
+<div class="card"><h3>Japanese Scooters</h3><p>Premium Models (Honda PCX / ADV) & Urban 48cc Models (Honda Today / Dio)</p></div>
+<div class="card"><h3>Vehicle Sourcing, Purchase & Selling Assistance</h3><p>Complete support for buying and selling vehicles.</p></div>
+<div class="card"><h3>Vehicle Registration & Ownership Transfer</h3><p>RMV documentation assistance.</p></div>
 <div class="card"><h3>Islamic Leasing & Insurance Assistance</h3><p>Shariah-compliant finance solutions.</p></div>
 <div class="card"><h3>Hire / Rent Solutions</h3><p>Flexible vehicle hire for professionals & corporates.</p></div>
-</div>
-</section>
-
-<div class="divider"></div>
-
-<section id="about">
-<h2 class="section-title">About Auto Space</h2>
-<div class="about">
-Auto Space Lanka (Pvt) Ltd – Company Registration No: PV 00354048.<br>
-Trusted vehicle solutions provider based in Puttalam.
+<div class="card"><h3>All Other Vehicle-Related Services</h3><p>Your complete vehicle partner.</p></div>
 </div>
 </section>
 
 <div class="divider"></div>
 
 <section id="contact">
-<h2 class="section-title">Contact Us</h2>
+<h2 class="section-title">Contact & Inquiry</h2>
+
 <div class="contact">
 📍 Colombo Road, Palaviya, Puttalam<br>
 📞 070 2222 842<br>
 📧 <a href="mailto:auto.space.px@gmail.com">auto.space.px@gmail.com</a>
 </div>
+
+<form action="mailto:auto.space.px@gmail.com" method="post" enctype="text/plain">
+<input type="text" name="Name" placeholder="Full Name" required>
+<input type="text" name="Phone" placeholder="Phone Number" required>
+
+<select name="Inquiry Type" required>
+<option value="">Select Inquiry Type</option>
+<option>Atul Three Wheel</option>
+<option>Suzuki Motorcycle</option>
+<option>Japanese Scooter</option>
+<option>Need to Buy a Vehicle</option>
+<option>Need to Sell a Vehicle</option>
+<option>Leasing / Insurance</option>
+<option>RMV Service</option>
+<option>Vehicle Rent / Hire</option>
+<option>Other</option>
+</select>
+
+<textarea name="Message" rows="4" placeholder="Your Message"></textarea>
+<button class="btn" type="submit">Submit Inquiry</button>
+</form>
+
+<div class="map">
+<iframe src="https://www.google.com/maps?q=Colombo+Road,+Palaviya,+Puttalam&output=embed"
+width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
+</div>
 </section>
 
 <footer>
 <div class="footer-grid">
-
 <div>
 <div class="footer-title">Auto Space Lanka</div>
 <p>Authorized vehicle dealership and professional vehicle solutions provider in Sri Lanka.</p>
 </div>
-
 <div>
 <div class="footer-title">Quick Links</div>
 <a href="#home">Home</a>
 <a href="#services">Services</a>
 <a href="#contact">Contact</a>
 </div>
-
 <div>
 <div class="footer-title">Connect With Us</div>
-<a href="YOUR_FACEBOOK_LINK">Facebook</a>
-<a href="YOUR_INSTAGRAM_LINK">Instagram</a>
-<a href="https://wa.me/94702222842">WhatsApp</a>
+<a href="https://www.facebook.com/share/173wYEGUqU/" target="_blank">Facebook</a>
+<a href="https://www.instagram.com/auto.space.px" target="_blank">Instagram</a>
+<a href="https://wa.me/94702222842" target="_blank">WhatsApp</a>
 </div>
-
 </div>
 
 <div class="footer-bottom">
@@ -309,7 +320,7 @@ Trusted vehicle solutions provider based in Puttalam.
 </div>
 </footer>
 
-<a href="https://wa.me/94702222842" class="whatsapp">WhatsApp</a>
+<a href="https://wa.me/94702222842" class="whatsapp" target="_blank">WhatsApp</a>
 
 <script>
 function toggleMenu(){
