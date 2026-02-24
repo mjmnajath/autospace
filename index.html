@@ -4,33 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Auto Space Lanka | Authorized Suzuki & Atul Dealer in Puttalam</title>
-
-<meta name="description" content="Auto Space Lanka (Pvt) Ltd is an authorized Suzuki motorcycle and Atul three wheeler dealer in Puttalam. Professional vehicle registration, leasing assistance and vehicle solutions in Sri Lanka.">
-
-<meta name="keywords" content="Suzuki dealer Puttalam, Atul three wheeler Puttalam, Vehicle leasing Puttalam, Auto Space Lanka, Japanese scooters Sri Lanka, Islamic leasing vehicles">
-
-<meta property="og:title" content="Auto Space Lanka | Authorized Dealer in Puttalam">
-<meta property="og:description" content="Authorized Suzuki & Atul dealer. Professional vehicle solutions in Puttalam.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="hero-bg.jpg">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>Auto Space Lanka | Authorized Vehicle Dealer</title>
+<meta name="description" content="Auto Space Lanka (Pvt) Ltd is an authorized vehicle dealer offering brand new motorcycles, three wheelers, Japanese scooters and professional vehicle services in Sri Lanka.">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:Segoe UI,sans-serif;background:#000;color:#fff;}
+body{font-family:Segoe UI,sans-serif;background:#000;color:#fff;overflow-x:hidden;}
 
+/* GOLD ANIMATED DIVIDER */
 .divider{
 height:2px;
+width:100%;
 background:linear-gradient(90deg,transparent,#d4af37,transparent);
-background-size:200% auto;
-animation:shine 3s linear infinite;
+animation:shine 3s infinite;
+margin:0;
 }
 @keyframes shine{
-0%{background-position:-200% center;}
-100%{background-position:200% center;}
+0%{background-position:-200px;}
+100%{background-position:200px;}
 }
 
 header{
@@ -40,23 +32,43 @@ top:0;
 z-index:1000;
 box-shadow:0 5px 25px rgba(212,175,55,.2);
 }
+
 .nav-container{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 8%;
 }
+
 .logo img{height:70px;}
-nav ul{list-style:none;display:flex;gap:30px;}
-nav ul li a{
-text-decoration:none;color:#fff;font-weight:500;position:relative;transition:.3s;
+
+nav ul{
+list-style:none;
+display:flex;
+gap:30px;
 }
+
+nav ul li a{
+text-decoration:none;
+color:#fff;
+font-weight:500;
+transition:.3s;
+position:relative;
+}
+
 nav ul li a:hover{color:#d4af37;}
 nav ul li a::after{
-content:'';position:absolute;left:0;bottom:-5px;width:0;height:2px;
-background:#d4af37;transition:.3s;
+content:'';
+position:absolute;
+left:0;
+bottom:-5px;
+width:0;
+height:2px;
+background:#d4af37;
+transition:.3s;
 }
 nav ul li a:hover::after{width:100%;}
+
 .menu-toggle{display:none;}
 
 .hero{
@@ -74,86 +86,125 @@ background-size:cover;
 background-position:center;
 background-attachment:fixed;
 }
+
 .hero h1{
 font-size:48px;
 margin-bottom:20px;
 color:#d4af37;
 text-shadow:0 0 25px rgba(212,175,55,.5);
 }
+
 .hero p{font-size:20px;margin-bottom:35px;color:#eee;}
 
 .btn{
-padding:14px 35px;border-radius:30px;
-background:#d4af37;color:#000;
-text-decoration:none;font-weight:bold;
+padding:14px 35px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+background:#d4af37;
+color:#000;
 transition:.3s;
+box-shadow:0 0 20px rgba(212,175,55,.6);
 }
+
 .btn:hover{background:#fff;transform:scale(1.05);}
 
-section{padding:100px 10%;background:#000;}
+section{
+padding:100px 10%;
+background:#000;
+}
+
 .section-title{text-align:center;font-size:36px;margin-bottom:60px;color:#d4af37;}
 
 .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;}
+
 .card{
-background:#111;padding:30px;border-radius:15px;
-border:1px solid rgba(212,175,55,.2);transition:.4s;
+background:#111;
+padding:30px;
+border-radius:15px;
+border:1px solid rgba(212,175,55,.2);
+transition:.4s;
 }
 .card:hover{transform:translateY(-10px);box-shadow:0 10px 35px rgba(212,175,55,.3);}
-.card h3{color:#d4af37;margin-bottom:10px;}
+.card h3{color:#d4af37;margin-bottom:10px;font-size:18px;}
 
 .brands{text-align:center;}
 .brands img{height:70px;margin:20px;}
 
-.about{text-align:center;max-width:850px;margin:auto;color:#ccc;}
+.badge{text-align:center;font-size:20px;color:#d4af37;margin-bottom:20px;}
 
-.contact{text-align:center;font-size:18px;line-height:2;}
+.about{max-width:850px;margin:auto;text-align:center;font-size:18px;color:#ccc;}
+
+.contact{text-align:center;font-size:20px;line-height:2;}
 .contact a{color:#d4af37;text-decoration:none;font-weight:bold;}
 .contact a:hover{color:#fff;}
 
-.map{margin-top:40px;border-radius:15px;overflow:hidden;}
-
+/* PREMIUM FOOTER */
 footer{
 background:#0b0b0b;
 padding:60px 10%;
 border-top:1px solid rgba(212,175,55,.2);
 }
+
 .footer-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:40px;
 }
-.footer-title{color:#d4af37;margin-bottom:20px;}
-.footer-grid a{
-color:#ccc;text-decoration:none;margin-bottom:10px;display:block;
+
+.footer-title{
+color:#d4af37;
+margin-bottom:20px;
+font-size:18px;
 }
+
+.footer-grid p,
+.footer-grid a{
+color:#ccc;
+font-size:14px;
+text-decoration:none;
+display:block;
+margin-bottom:8px;
+}
+
 .footer-grid a:hover{color:#d4af37;}
 
-.social-icons a{
-font-size:22px;
-margin-right:15px;
-color:#d4af37;
-transition:.3s;
-}
-.social-icons a:hover{color:#fff;}
-
 .footer-bottom{
-text-align:center;margin-top:40px;padding-top:20px;
+text-align:center;
+margin-top:40px;
+padding-top:20px;
 border-top:1px solid rgba(212,175,55,.2);
-color:#777;font-size:13px;
+color:#777;
+font-size:13px;
 }
 
 .whatsapp{
-position:fixed;bottom:20px;right:20px;
-background:#25D366;color:white;
-padding:15px 22px;border-radius:50px;
-text-decoration:none;font-weight:bold;
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 22px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
 box-shadow:0 0 20px rgba(0,0,0,.8);
 }
 
+/* Mobile */
 @media(max-width:768px){
-nav ul{flex-direction:column;background:#111;position:absolute;top:80px;right:0;width:200px;padding:20px;display:none;}
+nav ul{
+flex-direction:column;
+background:#111;
+position:absolute;
+top:80px;
+right:0;
+width:200px;
+padding:20px;
+display:none;
+}
 nav ul.show{display:block;}
-.menu-toggle{display:block;color:#d4af37;font-size:26px;cursor:pointer;}
+.menu-toggle{display:block;cursor:pointer;color:#d4af37;font-size:26px;}
 .hero h1{font-size:30px;}
 }
 </style>
@@ -167,7 +218,9 @@ nav ul.show{display:block;}
 <nav>
 <ul>
 <li><a href="#home">Home</a></li>
+<li><a href="#dealership">Dealership</a></li>
 <li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 </nav>
@@ -176,9 +229,20 @@ nav ul.show{display:block;}
 </header>
 
 <section class="hero" id="home">
-<h1>Authorized Suzuki & Atul Dealer in Puttalam</h1>
+<h1>Authorized Vehicle Dealer & Solutions Provider</h1>
 <p>Professional • Trusted • Customer Focused</p>
-<a class="btn" href="https://wa.me/94702222842" target="_blank">Chat on WhatsApp</a>
+<a class="btn" href="https://wa.me/94702222842">Chat on WhatsApp</a>
+</section>
+
+<div class="divider"></div>
+
+<section id="dealership">
+<h2 class="section-title">Authorized Dealership</h2>
+<div class="badge">Officially Authorized Dealer in Puttalam Region</div>
+<div class="brands">
+<img src="suzuki.png" alt="Suzuki">
+<img src="atul.png" alt="Atul">
+</div>
 </section>
 
 <div class="divider"></div>
@@ -186,9 +250,22 @@ nav ul.show{display:block;}
 <section id="services">
 <h2 class="section-title">Our Services</h2>
 <div class="services">
-<div class="card"><h3>Authorized Suzuki Motorcycles</h3><p>Brand new Suzuki motorcycles.</p></div>
-<div class="card"><h3>Authorized Atul Three Wheelers</h3><p>Brand new Atul (India) three wheelers.</p></div>
-<div class="card"><h3>Vehicle Registration & Leasing</h3><p>Complete documentation & Islamic leasing assistance.</p></div>
+<div class="card"><h3>Authorized Dealer – Softlogic Automobiles</h3><p>Brand New Three Wheelers – Atul (India)</p></div>
+<div class="card"><h3>Authorized Dealer – Suzuki Motors Lanka</h3><p>Brand New Motorcycles – Suzuki</p></div>
+<div class="card"><h3>Japanese Scooters</h3><p>Premium Models & Urban Models</p></div>
+<div class="card"><h3>Vehicle Registration & Ownership Transfer</h3><p>Complete RMV documentation support.</p></div>
+<div class="card"><h3>Islamic Leasing & Insurance Assistance</h3><p>Shariah-compliant finance solutions.</p></div>
+<div class="card"><h3>Hire / Rent Solutions</h3><p>Flexible vehicle hire for professionals & corporates.</p></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section id="about">
+<h2 class="section-title">About Auto Space</h2>
+<div class="about">
+Auto Space Lanka (Pvt) Ltd – Company Registration No: PV 00354048.<br>
+Trusted vehicle solutions provider based in Puttalam.
 </div>
 </section>
 
@@ -201,28 +278,30 @@ nav ul.show{display:block;}
 📞 070 2222 842<br>
 📧 <a href="mailto:auto.space.px@gmail.com">auto.space.px@gmail.com</a>
 </div>
-
-<div class="map">
-<iframe src="https://www.google.com/maps?q=Colombo+Road,+Palaviya,+Puttalam&output=embed"
-width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
-</div>
 </section>
 
 <footer>
 <div class="footer-grid">
+
 <div>
 <div class="footer-title">Auto Space Lanka</div>
-<p>Authorized vehicle dealership in Puttalam.</p>
+<p>Authorized vehicle dealership and professional vehicle solutions provider in Sri Lanka.</p>
+</div>
+
+<div>
+<div class="footer-title">Quick Links</div>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
 </div>
 
 <div>
 <div class="footer-title">Connect With Us</div>
-<div class="social-icons">
-<a href="https://www.facebook.com/share/173wYEGUqU/" target="_blank"><i class="fab fa-facebook"></i></a>
-<a href="https://www.instagram.com/auto.space.px" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://wa.me/94702222842" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="YOUR_FACEBOOK_LINK">Facebook</a>
+<a href="YOUR_INSTAGRAM_LINK">Instagram</a>
+<a href="https://wa.me/94702222842">WhatsApp</a>
 </div>
-</div>
+
 </div>
 
 <div class="footer-bottom">
@@ -230,7 +309,7 @@ width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></ifr
 </div>
 </footer>
 
-<a href="https://wa.me/94702222842" class="whatsapp" target="_blank">WhatsApp</a>
+<a href="https://wa.me/94702222842" class="whatsapp">WhatsApp</a>
 
 <script>
 function toggleMenu(){
