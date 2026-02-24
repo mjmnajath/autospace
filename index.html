@@ -9,28 +9,113 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 body{font-family:Segoe UI,sans-serif;background:#000;color:#fff;overflow-x:hidden;}
+
 #loader{position:fixed;width:100%;height:100vh;background:#000;display:flex;justify-content:center;align-items:center;z-index:9999;transition:opacity .8s ease;}
 .loader-text{font-size:28px;letter-spacing:4px;color:#d4af37;animation:pulse 1.5s infinite;}
 @keyframes pulse{0%{opacity:.4}50%{opacity:1}100%{opacity:.4}}
 
-header{background:#0b0b0b;text-align:center;padding:20px;position:sticky;top:0;z-index:1000;box-shadow:0 5px 25px rgba(212,175,55,.2);}
-.logo img{height:90px;}
+header{
+background:#0b0b0b;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 5px 25px rgba(212,175,55,.2);
+}
 
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;background:linear-gradient(145deg,#000,#111);opacity:0;transform:translateY(30px);transition:all 1s ease;}
+.nav-container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 8%;
+}
+
+.logo img{height:70px;}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:30px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#fff;
+font-weight:500;
+transition:.3s;
+position:relative;
+}
+
+nav ul li a:hover{color:#d4af37;}
+
+nav ul li a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-5px;
+width:0;
+height:2px;
+background:#d4af37;
+transition:.3s;
+}
+
+nav ul li a:hover::after{width:100%;}
+
+.menu-toggle{display:none;}
+
+/* Hero */
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background:linear-gradient(145deg,#000,#111);
+opacity:0;
+transform:translateY(30px);
+transition:all 1s ease;
+}
 .hero.visible{opacity:1;transform:translateY(0);}
 .hero h1{font-size:48px;margin-bottom:20px;color:#d4af37;}
 .hero p{font-size:20px;margin-bottom:35px;color:#ccc;}
-.btn{padding:14px 35px;border-radius:30px;text-decoration:none;font-weight:bold;background:#d4af37;color:#000;transition:.3s;box-shadow:0 0 15px rgba(212,175,55,.5);}
+
+.btn{
+padding:14px 35px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+background:#d4af37;
+color:#000;
+transition:.3s;
+box-shadow:0 0 15px rgba(212,175,55,.5);
+}
 .btn:hover{background:#fff;transform:scale(1.05);}
 
-section{padding:100px 10%;opacity:0;transform:translateY(40px);transition:all 1s ease;}
+section{
+padding:100px 10%;
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
 section.visible{opacity:1;transform:translateY(0);}
+
 .section-title{text-align:center;font-size:36px;margin-bottom:60px;color:#d4af37;}
 
 .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;}
-.card{background:#111;padding:30px;border-radius:15px;border:1px solid rgba(212,175,55,.2);transition:.4s;}
-.card:hover{transform:translateY(-10px);box-shadow:0 10px 35px rgba(212,175,55,.3);}
+.card{
+background:#111;
+padding:30px;
+border-radius:15px;
+border:1px solid rgba(212,175,55,.2);
+transition:.4s;
+}
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 35px rgba(212,175,55,.3);
+}
 .card h3{color:#d4af37;margin-bottom:10px;font-size:18px;}
 
 .brands{text-align:center;}
@@ -51,9 +136,40 @@ form{max-width:600px;margin:auto;}
 
 footer{background:#0b0b0b;text-align:center;padding:30px;color:#777;}
 
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px 22px;border-radius:50px;text-decoration:none;font-weight:bold;box-shadow:0 0 20px rgba(0,0,0,.8);}
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 22px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 0 20px rgba(0,0,0,.8);
+}
 
-@media(max-width:768px){.hero h1{font-size:30px;}}
+/* Mobile */
+@media(max-width:768px){
+nav ul{
+flex-direction:column;
+background:#111;
+position:absolute;
+top:80px;
+right:0;
+width:200px;
+padding:20px;
+display:none;
+}
+nav ul.show{display:block;}
+.menu-toggle{
+display:block;
+cursor:pointer;
+color:#d4af37;
+font-size:26px;
+}
+.hero h1{font-size:30px;}
+}
 </style>
 </head>
 
@@ -62,16 +178,34 @@ footer{background:#0b0b0b;text-align:center;padding:30px;color:#777;}
 <div id="loader"><div class="loader-text">AUTO SPACE</div></div>
 
 <header>
-<div class="logo"><img src="autospacelogo.png" alt="Auto Space Logo"></div>
+<div class="nav-container">
+
+<div class="logo">
+<img src="autospacelogo.png" alt="Auto Space Logo">
+</div>
+
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#dealership">Dealership</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+</div>
 </header>
 
-<section class="hero">
+<section class="hero" id="home">
 <h1>Authorized Vehicle Dealer & Solutions Provider</h1>
 <p>Professional • Trusted • Customer Focused</p>
 <a class="btn" href="https://wa.me/94702222842">Chat on WhatsApp</a>
 </section>
 
-<section>
+<section id="dealership">
 <h2 class="section-title">Authorized Dealership</h2>
 <div class="badge">Officially Authorized Dealer in Puttalam Region</div>
 <div class="brands">
@@ -80,7 +214,7 @@ footer{background:#0b0b0b;text-align:center;padding:30px;color:#777;}
 </div>
 </section>
 
-<section>
+<section id="services">
 <h2 class="section-title">Our Services</h2>
 <div class="services">
 
@@ -127,19 +261,7 @@ footer{background:#0b0b0b;text-align:center;padding:30px;color:#777;}
 </div>
 </section>
 
-<section>
-<h2 class="section-title">Why Choose Auto Space?</h2>
-<div class="trust">
-<div>✔ Authorized & Verified Dealer</div>
-<div>✔ Transparent & Ethical Transactions</div>
-<div>✔ Professional Documentation Handling</div>
-<div>✔ Customer-Focused Service Approach</div>
-<div>✔ Strong Industry Partnerships</div>
-<div>✔ Reliable After-Sales Support</div>
-</div>
-</section>
-
-<section>
+<section id="about">
 <h2 class="section-title">About Auto Space</h2>
 <div class="about">
 Auto Space Lanka (Pvt) Ltd is a trusted vehicle solutions provider based in Puttalam.
@@ -148,7 +270,7 @@ We simplify vehicle transactions with professionalism, transparency and customer
 </div>
 </section>
 
-<section>
+<section id="contact">
 <h2 class="section-title">Contact Us</h2>
 <div class="contact">
 📍 Colombo Road, Palaviya, Puttalam<br>
@@ -167,7 +289,6 @@ We simplify vehicle transactions with professionalism, transparency and customer
 <iframe src="https://www.google.com/maps?q=Colombo+Road,+Palaviya,+Puttalam&output=embed"
 width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
 </div>
-
 </section>
 
 <footer>
@@ -181,6 +302,11 @@ window.addEventListener("load",function(){
 document.getElementById("loader").style.opacity="0";
 setTimeout(()=>{document.getElementById("loader").style.display="none";},800);
 });
+
+function toggleMenu(){
+document.querySelector("nav ul").classList.toggle("show");
+}
+
 const sections=document.querySelectorAll("section");
 window.addEventListener("scroll",()=>{
 sections.forEach(sec=>{
