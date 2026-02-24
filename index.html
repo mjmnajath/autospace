@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Auto Space Lanka | Authorized Vehicle Dealer and One-Stop Vehicle Solutions Provider</title>
+<title>Auto Space Lanka | Authorized Vehicle Dealer</title>
 <meta name="description" content="Auto Space Lanka (Pvt) Ltd is an authorized vehicle dealer offering brand new motorcycles, three wheelers, Japanese scooters and professional vehicle services in Sri Lanka.">
 
 <style>
@@ -12,35 +12,70 @@
 html,body{margin:0;padding:0;}
 body{font-family:Segoe UI,sans-serif;background:#000;color:#fff;}
 
+/* ===== PREMIUM HEADER START ===== */
+
 header{
-background:#0b0b0b;
 position:sticky;
 top:0;
 z-index:1000;
-box-shadow:0 5px 25px rgba(212,175,55,.2);
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(8px);
+-webkit-backdrop-filter:blur(8px);
+border-bottom:1px solid rgba(212,175,55,0.3);
+box-shadow:0 5px 30px rgba(0,0,0,0.6);
 }
 
 .nav-container{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 8%;
+padding:18px 8%;
 }
 
-.logo img{height:70px;}
+.logo img{
+height:70px;
+transition:0.3s ease;
+}
+
+.logo img:hover{
+transform:scale(1.05);
+}
 
 nav ul{
 list-style:none;
 display:flex;
-gap:30px;
+gap:40px;
 }
 
 nav ul li a{
 text-decoration:none;
 color:#fff;
+font-weight:500;
+letter-spacing:0.5px;
+position:relative;
+transition:0.3s;
 }
 
-nav ul li a:hover{color:#d4af37;}
+nav ul li a:hover{
+color:#d4af37;
+}
+
+nav ul li a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-6px;
+width:0%;
+height:2px;
+background:#d4af37;
+transition:0.3s ease;
+}
+
+nav ul li a:hover::after{
+width:100%;
+}
+
+/* ===== PREMIUM HEADER END ===== */
 
 .hero{
 height:100vh;
@@ -96,6 +131,27 @@ border:1px solid rgba(212,175,55,.2);
 }
 
 .card h3{color:#d4af37;margin-bottom:10px;}
+
+form{
+max-width:600px;
+margin:auto;
+background:#111;
+padding:30px;
+border-radius:15px;
+border:1px solid rgba(212,175,55,.2);
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+background:#000;
+color:#fff;
+border:1px solid #333;
+border-radius:8px;
+}
+
+.hidden{display:none;}
 
 .contact{
 text-align:center;
@@ -166,6 +222,7 @@ font-weight:bold;
 
 @media(max-width:768px){
 .hero h1{font-size:32px;}
+nav ul{gap:20px;}
 }
 </style>
 </head>
@@ -194,53 +251,47 @@ font-weight:bold;
 <h2 class="section-title">Our Services</h2>
 <div class="services">
 
-<div class="card">
-<h3>Authorized Dealer – Softlogic Automobiles</h3>
-<p>Brand New Three Wheelers – Atul (India)</p>
-</div>
-
-<div class="card">
-<h3>Authorized Dealer – Suzuki Motors Lanka</h3>
-<p>Brand New Motorcycles – Suzuki</p>
-</div>
-
-<div class="card">
-<h3>Japanese Scooters</h3>
-<p>Premium Models (Honda PCX / ADV) & Urban 48cc Models (Honda Today / Dio)</p>
-</div>
-
-<div class="card">
-<h3>Vehicle Sourcing, Purchase & Selling Assistance</h3>
-<p>Complete support for buying and selling registered and unregistered vehicles.</p>
-</div>
-
-<div class="card">
-<h3>Vehicle Registration & Ownership Transfer</h3>
-<p>RMV documentation and complete vehicle processing assistance.</p>
-</div>
-
-<div class="card">
-<h3>Islamic Leasing & Insurance Assistance</h3>
-<p>Professional support for Shariah-compliant finance solutions.</p>
-</div>
-
-<div class="card">
-<h3>Hire / Rent Solutions for Professionals & Corporates</h3>
-<p>Flexible vehicle hire services tailored for business and executive needs.</p>
-</div>
-
-<div class="card">
-<h3>All Other Vehicle-Related Services</h3>
-<p>Your complete partner for vehicle solutions in Puttalam and beyond.</p>
-</div>
+<div class="card"><h3>Authorized Dealer – Softlogic Automobiles</h3><p>Brand New Three Wheelers – Atul (India)</p></div>
+<div class="card"><h3>Authorized Dealer – Suzuki Motors Lanka</h3><p>Brand New Motorcycles – Suzuki</p></div>
+<div class="card"><h3>Japanese Scooters</h3><p>Premium Models (Honda PCX / ADV) & Urban 48cc Models</p></div>
+<div class="card"><h3>Vehicle Sourcing, Purchase & Selling Assistance</h3><p>Complete support for buying and selling vehicles.</p></div>
+<div class="card"><h3>Vehicle Registration & Ownership Transfer</h3><p>RMV documentation and complete processing assistance.</p></div>
+<div class="card"><h3>Islamic Leasing & Insurance Assistance</h3><p>Shariah-compliant finance solutions.</p></div>
+<div class="card"><h3>Hire / Rent Solutions</h3><p>Flexible hire for professionals & corporates.</p></div>
+<div class="card"><h3>All Other Vehicle Services</h3><p>Your complete vehicle solutions partner.</p></div>
 
 </div>
 </section>
 
 <section id="contact">
-<h2 class="section-title">Contact Us</h2>
+<h2 class="section-title">Customer Inquiry</h2>
 
-<div style="text-align:center;font-size:22px;color:#d4af37;font-weight:bold;margin-bottom:5px;">
+<form id="inquiryForm">
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="text" id="phone" placeholder="Phone Number" required>
+
+<select id="inquiryType" required onchange="handleInquiryChange()">
+<option value="">Select Inquiry Type</option>
+<option>Atul Three Wheel</option>
+<option>Suzuki Motorcycle</option>
+<option>Japanese Scooter</option>
+<option>Need to Buy a Vehicle</option>
+<option>Need to Sell a Vehicle</option>
+<option>Leasing / Insurance</option>
+<option>RMV Service</option>
+<option>Vehicle Rent / Hire</option>
+<option>Other</option>
+</select>
+
+<input type="text" id="vehicleDetails" class="hidden" placeholder="Vehicle Model / Details">
+<textarea id="message" rows="4" placeholder="Additional Message"></textarea>
+
+<button type="submit" class="btn">Send via WhatsApp</button>
+</form>
+
+<h2 class="section-title" style="margin-top:80px;">Contact Us</h2>
+
+<div style="text-align:center;font-size:22px;color:#d4af37;font-weight:bold;">
 Auto Space Lanka (Pvt) Ltd
 </div>
 
@@ -262,7 +313,6 @@ width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></ifr
 
 <footer>
 <div class="footer-grid">
-
 <div>
 <div class="footer-title">Authorized Dealers</div>
 <div class="dealer-logos">
@@ -274,15 +324,10 @@ width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></ifr
 <div>
 <div class="footer-title">Connect With Us</div>
 <div class="social-icons">
-<a href="https://www.facebook.com/share/173wYEGUqU/" target="_blank">
-<img src="facebook.png">
-</a>
-<a href="https://www.instagram.com/auto.space.px" target="_blank">
-<img src="instagram.png">
-</a>
+<a href="https://www.facebook.com/share/173wYEGUqU/" target="_blank"><img src="facebook.png"></a>
+<a href="https://www.instagram.com/auto.space.px" target="_blank"><img src="instagram.png"></a>
 </div>
 </div>
-
 </div>
 
 <div class="footer-bottom">
@@ -291,6 +336,36 @@ width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></ifr
 </footer>
 
 <a href="https://wa.me/94702222842" class="whatsapp" target="_blank">WhatsApp</a>
+
+<script>
+function handleInquiryChange(){
+const type=document.getElementById("inquiryType").value;
+const details=document.getElementById("vehicleDetails");
+if(type==="Need to Sell a Vehicle" || type==="Need to Buy a Vehicle" || type==="Atul Three Wheel" || type==="Suzuki Motorcycle" || type==="Japanese Scooter"){
+details.classList.remove("hidden");
+}else{
+details.classList.add("hidden");
+}
+}
+
+document.getElementById("inquiryForm").addEventListener("submit",function(e){
+e.preventDefault();
+const name=document.getElementById("name").value;
+const phone=document.getElementById("phone").value;
+const type=document.getElementById("inquiryType").value;
+const vehicle=document.getElementById("vehicleDetails").value;
+const message=document.getElementById("message").value;
+
+let text="New Inquiry - Auto Space Lanka%0A";
+text+="Name: "+name+"%0A";
+text+="Phone: "+phone+"%0A";
+text+="Inquiry: "+type+"%0A";
+if(vehicle) text+="Vehicle Details: "+vehicle+"%0A";
+if(message) text+="Message: "+message;
+
+window.open("https://wa.me/94702222842?text="+text,"_blank");
+});
+</script>
 
 </body>
 </html>
