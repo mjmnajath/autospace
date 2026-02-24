@@ -10,11 +10,10 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:Segoe UI,sans-serif;background:#000;color:#fff;overflow-x:hidden;}
+body{font-family:Segoe UI,sans-serif;background:#000;color:#fff;}
 
 .divider{
 height:2px;
-width:100%;
 background:linear-gradient(90deg,transparent,#d4af37,transparent);
 background-size:200% auto;
 animation:shine 3s linear infinite;
@@ -26,140 +25,76 @@ animation:shine 3s linear infinite;
 
 header{
 background:rgba(0,0,0,0.95);
-position:sticky;
-top:0;
-z-index:1000;
+position:sticky;top:0;z-index:1000;
 box-shadow:0 5px 25px rgba(212,175,55,.2);
 }
-
 .nav-container{
-display:flex;
-justify-content:space-between;
-align-items:center;
+display:flex;justify-content:space-between;align-items:center;
 padding:15px 8%;
 }
-
 .logo img{height:70px;}
-
-nav ul{
-list-style:none;
-display:flex;
-gap:30px;
-}
-
-nav ul li a{
-text-decoration:none;
-color:#fff;
-font-weight:500;
-transition:.3s;
-position:relative;
-}
-
+nav ul{list-style:none;display:flex;gap:30px;}
+nav ul li a{text-decoration:none;color:#fff;font-weight:500;position:relative;}
 nav ul li a:hover{color:#d4af37;}
 nav ul li a::after{
-content:'';
-position:absolute;
-left:0;
-bottom:-5px;
-width:0;
-height:2px;
-background:#d4af37;
-transition:.3s;
+content:'';position:absolute;left:0;bottom:-5px;width:0;height:2px;
+background:#d4af37;transition:.3s;
 }
 nav ul li a:hover::after{width:100%;}
 
-.menu-toggle{display:none;}
-
 .hero{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
+min-height:100vh;display:flex;flex-direction:column;
+justify-content:center;align-items:center;text-align:center;
 padding:20px;
 background:
-linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)),
 url('hero-bg.jpg');
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
+background-size:cover;background-position:center;
 }
-
 .hero h1{
-font-size:48px;
-margin-bottom:20px;
-color:#d4af37;
-text-shadow:0 0 25px rgba(212,175,55,.5);
+font-size:48px;margin-bottom:20px;
+color:#d4af37;text-shadow:0 0 25px rgba(212,175,55,.5);
 }
-
-.hero p{font-size:20px;margin-bottom:35px;color:#eee;}
+.hero p{font-size:20px;margin-bottom:35px;}
 
 .btn{
-padding:14px 35px;
-border-radius:30px;
-text-decoration:none;
-font-weight:bold;
-background:#d4af37;
-color:#000;
-transition:.3s;
-box-shadow:0 0 20px rgba(212,175,55,.6);
-border:none;
-cursor:pointer;
+padding:14px 35px;border-radius:30px;
+background:#d4af37;color:#000;font-weight:bold;
+border:none;cursor:pointer;
 }
+.btn:hover{background:#fff;}
 
-.btn:hover{background:#fff;transform:scale(1.05);}
-
-section{
-padding:100px 10%;
-background:#000;
-}
-
+section{padding:100px 10%;background:#000;}
 .section-title{text-align:center;font-size:36px;margin-bottom:60px;color:#d4af37;}
 
 .services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
 }
-
 .card{
-background:#111;
-padding:30px;
-border-radius:15px;
+background:#111;padding:30px;border-radius:15px;
 border:1px solid rgba(212,175,55,.2);
-transition:.4s;
+transition:.3s;
 }
-
 .card:hover{
 transform:translateY(-10px);
 box-shadow:0 10px 35px rgba(212,175,55,.3);
 }
-
 .card h3{color:#d4af37;margin-bottom:10px;}
 
-.contact{text-align:center;font-size:20px;line-height:2;}
-.contact a{color:#d4af37;text-decoration:none;font-weight:bold;}
-.contact a:hover{color:#fff;}
-
 form{
-max-width:600px;
-margin:40px auto 0 auto;
-background:#111;
-padding:30px;
-border-radius:15px;
+max-width:600px;margin:auto;
+background:#111;padding:30px;border-radius:15px;
 border:1px solid rgba(212,175,55,.2);
 }
-
-input,textarea,select{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:8px;
-border:1px solid #333;
-background:#000;
-color:#fff;
+input,select,textarea{
+width:100%;padding:12px;margin:10px 0;
+background:#000;color:#fff;border:1px solid #333;border-radius:8px;
 }
+.hidden{display:none;}
+
+.contact{text-align:center;font-size:20px;line-height:2;margin-top:40px;}
+.contact a{color:#d4af37;text-decoration:none;}
 
 .map{margin-top:40px;border-radius:15px;overflow:hidden;}
 
@@ -168,20 +103,17 @@ background:#0b0b0b;
 padding:60px 10%;
 border-top:1px solid rgba(212,175,55,.2);
 }
-
 .footer-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:40px;
 }
-
-.footer-title{color:#d4af37;margin-bottom:20px;}
-
+.footer-title{color:#d4af37;margin-bottom:20px;font-size:18px;}
+.footer-grid p,
 .footer-grid a{
-color:#ccc;text-decoration:none;margin-bottom:8px;display:block;
+color:#ccc;font-size:14px;text-decoration:none;display:block;margin-bottom:8px;
 }
 .footer-grid a:hover{color:#d4af37;}
-
 .footer-bottom{
 text-align:center;margin-top:40px;padding-top:20px;
 border-top:1px solid rgba(212,175,55,.2);
@@ -189,32 +121,10 @@ color:#777;font-size:13px;
 }
 
 .whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px 22px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-box-shadow:0 0 20px rgba(0,0,0,.8);
-}
-
-@media(max-width:768px){
-nav ul{
-flex-direction:column;
-background:#111;
-position:absolute;
-top:80px;
-right:0;
-width:200px;
-padding:20px;
-display:none;
-}
-nav ul.show{display:block;}
-.menu-toggle{display:block;color:#d4af37;font-size:26px;cursor:pointer;}
-.hero h1{font-size:30px;}
+position:fixed;bottom:20px;right:20px;
+background:#25D366;color:white;
+padding:15px 22px;border-radius:50px;
+text-decoration:none;font-weight:bold;
 }
 </style>
 </head>
@@ -223,7 +133,7 @@ nav ul.show{display:block;}
 
 <header>
 <div class="nav-container">
-<div class="logo"><img src="autospacelogo.png" alt="Auto Space Logo"></div>
+<div class="logo"><img src="autospacelogo.png"></div>
 <nav>
 <ul>
 <li><a href="#home">Home</a></li>
@@ -231,7 +141,6 @@ nav ul.show{display:block;}
 <li><a href="#contact">Contact</a></li>
 </ul>
 </nav>
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </div>
 </header>
 
@@ -246,33 +155,60 @@ nav ul.show{display:block;}
 <section id="services">
 <h2 class="section-title">Our Services</h2>
 <div class="services">
-<div class="card"><h3>Authorized Dealer – Softlogic Automobiles</h3><p>Brand New Three Wheelers – Atul (India)</p></div>
-<div class="card"><h3>Authorized Dealer – Suzuki Motors Lanka</h3><p>Brand New Motorcycles – Suzuki</p></div>
-<div class="card"><h3>Japanese Scooters</h3><p>Premium Models (Honda PCX / ADV) & Urban 48cc Models (Honda Today / Dio)</p></div>
-<div class="card"><h3>Vehicle Sourcing, Purchase & Selling Assistance</h3><p>Complete support for buying and selling vehicles.</p></div>
-<div class="card"><h3>Vehicle Registration & Ownership Transfer</h3><p>RMV documentation assistance.</p></div>
-<div class="card"><h3>Islamic Leasing & Insurance Assistance</h3><p>Shariah-compliant finance solutions.</p></div>
-<div class="card"><h3>Hire / Rent Solutions</h3><p>Flexible vehicle hire for professionals & corporates.</p></div>
-<div class="card"><h3>All Other Vehicle-Related Services</h3><p>Your complete vehicle partner.</p></div>
+
+<div class="card">
+<h3>Authorized Dealer – Softlogic Automobiles</h3>
+<p>Brand New Three Wheelers – Atul (India)</p>
+</div>
+
+<div class="card">
+<h3>Authorized Dealer – Suzuki Motors Lanka</h3>
+<p>Brand New Motorcycles – Suzuki</p>
+</div>
+
+<div class="card">
+<h3>Japanese Scooters</h3>
+<p>Premium Models (Honda PCX / ADV) & Urban 48cc Models (Honda Today / Dio)</p>
+</div>
+
+<div class="card">
+<h3>Vehicle Sourcing, Purchase & Selling Assistance</h3>
+<p>Complete support for buying and selling registered and unregistered vehicles.</p>
+</div>
+
+<div class="card">
+<h3>Vehicle Registration & Ownership Transfer</h3>
+<p>RMV documentation and complete vehicle processing assistance.</p>
+</div>
+
+<div class="card">
+<h3>Islamic Leasing & Insurance Assistance</h3>
+<p>Professional support for Shariah-compliant finance solutions.</p>
+</div>
+
+<div class="card">
+<h3>Hire / Rent Solutions for Professionals & Corporates</h3>
+<p>Flexible vehicle hire services tailored for business and executive needs.</p>
+</div>
+
+<div class="card">
+<h3>All Other Vehicle-Related Services</h3>
+<p>Your complete partner for vehicle solutions in Puttalam and beyond.</p>
+</div>
+
 </div>
 </section>
 
 <div class="divider"></div>
 
 <section id="contact">
-<h2 class="section-title">Contact & Inquiry</h2>
+<h2 class="section-title">Customer Inquiry</h2>
 
-<div class="contact">
-📍 Colombo Road, Palaviya, Puttalam<br>
-📞 070 2222 842<br>
-📧 <a href="mailto:auto.space.px@gmail.com">auto.space.px@gmail.com</a>
-</div>
+<form id="inquiryForm">
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="text" id="phone" placeholder="Phone Number" required>
 
-<form action="mailto:auto.space.px@gmail.com" method="post" enctype="text/plain">
-<input type="text" name="Name" placeholder="Full Name" required>
-<input type="text" name="Phone" placeholder="Phone Number" required>
-
-<select name="Inquiry Type" required>
+<select id="inquiryType" required onchange="handleInquiryChange()">
 <option value="">Select Inquiry Type</option>
 <option>Atul Three Wheel</option>
 <option>Suzuki Motorcycle</option>
@@ -285,34 +221,46 @@ nav ul.show{display:block;}
 <option>Other</option>
 </select>
 
-<textarea name="Message" rows="4" placeholder="Your Message"></textarea>
-<button class="btn" type="submit">Submit Inquiry</button>
+<input type="text" id="vehicleDetails" class="hidden" placeholder="Enter Vehicle Model / Details">
+<textarea id="message" rows="4" placeholder="Additional Message"></textarea>
+<button type="submit" class="btn">Send via WhatsApp</button>
 </form>
+
+<div class="contact">
+📍 Colombo Road, Palaviya, Puttalam<br>
+📞 070 2222 842<br>
+📧 <a href="mailto:auto.space.px@gmail.com">auto.space.px@gmail.com</a>
+</div>
 
 <div class="map">
 <iframe src="https://www.google.com/maps?q=Colombo+Road,+Palaviya,+Puttalam&output=embed"
 width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
 </div>
+
 </section>
 
 <footer>
 <div class="footer-grid">
+
 <div>
-<div class="footer-title">Auto Space Lanka</div>
-<p>Authorized vehicle dealership and professional vehicle solutions provider in Sri Lanka.</p>
+<div class="footer-title">Auto Space Lanka (Pvt) Ltd</div>
+<p>Company Registration No: PV 00354048</p>
+<p>Authorized Vehicle Dealer & Solutions Provider in Sri Lanka.</p>
 </div>
+
 <div>
-<div class="footer-title">Quick Links</div>
-<a href="#home">Home</a>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
+<div class="footer-title">Authorized Partnerships</div>
+<p>Authorized Dealer – Softlogic Automobiles (Atul India)</p>
+<p>Authorized Dealer – Suzuki Motors Lanka</p>
 </div>
+
 <div>
 <div class="footer-title">Connect With Us</div>
 <a href="https://www.facebook.com/share/173wYEGUqU/" target="_blank">Facebook</a>
 <a href="https://www.instagram.com/auto.space.px" target="_blank">Instagram</a>
 <a href="https://wa.me/94702222842" target="_blank">WhatsApp</a>
 </div>
+
 </div>
 
 <div class="footer-bottom">
@@ -323,9 +271,33 @@ width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></ifr
 <a href="https://wa.me/94702222842" class="whatsapp" target="_blank">WhatsApp</a>
 
 <script>
-function toggleMenu(){
-document.querySelector("nav ul").classList.toggle("show");
+function handleInquiryChange(){
+const type=document.getElementById("inquiryType").value;
+const details=document.getElementById("vehicleDetails");
+if(type==="Need to Sell a Vehicle" || type==="Need to Buy a Vehicle" || type==="Atul Three Wheel" || type==="Suzuki Motorcycle" || type==="Japanese Scooter"){
+details.classList.remove("hidden");
+}else{
+details.classList.add("hidden");
 }
+}
+
+document.getElementById("inquiryForm").addEventListener("submit",function(e){
+e.preventDefault();
+const name=document.getElementById("name").value;
+const phone=document.getElementById("phone").value;
+const type=document.getElementById("inquiryType").value;
+const vehicle=document.getElementById("vehicleDetails").value;
+const message=document.getElementById("message").value;
+
+let text="New Inquiry - Auto Space Lanka%0A";
+text+="Name: "+name+"%0A";
+text+="Phone: "+phone+"%0A";
+text+="Inquiry: "+type+"%0A";
+if(vehicle) text+="Vehicle Details: "+vehicle+"%0A";
+if(message) text+="Message: "+message;
+
+window.open("https://wa.me/94702222842?text="+text,"_blank");
+});
 </script>
 
 </body>
